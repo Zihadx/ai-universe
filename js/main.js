@@ -45,6 +45,9 @@ const displayData = (cards) => {
         `;
     cardContainer.appendChild(cardDiv);
   });
+  // stop loading spinner 
+  toggleSpinner(false)
+
 };
 loadData();
 
@@ -54,13 +57,18 @@ const showAllData =()=>{
     .then((res) => res.json())
     .then((data) => displayData(data.data.tools));
 
-    const showAll = document.getElementById("show-all");
-  if (displayData > 6) {
-    showAll.classList.remove("d-none");
-  } else {
-    showAll.classList.add("d-none");
+  const showAll = document.getElementById("show-all");
+   
+  toggleSpinner(true)
+   if (displayData > 6) {
+      showAll.classList.remove("d-none");
+    }
+    
+    else {
+      showAll.classList.add("d-none");
+      
+    }
   }
-}
 
 // modal style and function start
 
@@ -122,7 +130,11 @@ const showCardDetails = data =>{
   // show card details second part 
   const detailsSecondPart = document.getElementById('details-second-part');
   detailsSecondPart.innerHTML=`
+   <div class="position-relative">
    <img src="${data.data.image_link[0]}" class="card-img-top rounded" alt="...">
+   <p class="p-2 badge text-bg-danger position-absolute top-0 end-0">${data.data.accuracy.score ? data.data.accuracy.score + " " + " accuracy" : ""}</p>
+   </div>
+   
   <h5 class="mt-4">${data.data.input_output_examples[0] ? 
     data.data.input_output_examples[0].input :"No! Not Yet! Take a break!!!" } </h5>
   <p>${data.data.input_output_examples[0] ?
@@ -133,16 +145,28 @@ const showCardDetails = data =>{
   <p>${data.data.input_output_examples[1] ?
      data.data.input_output_examples[1].output :"No! Not Yet! Take a break!!!" }</p>
 
-     
+
+   
 
   `
   
 }
 loadCardDetails()
 
+const toggleSpinner = isLoading =>{
+  const loadingSpinner = document.getElementById('loader')
+  if(isLoading){
+    loadingSpinner.classList.remove('d-none')
+  }
+  else{
+    loadingSpinner.classList.add('d-none')
+  }
+}
 
+const ShortByDate =document.getElementById('date').addEventListener('click', function(){
 
-
+  
+}) 
 
 
 // modal style and function end

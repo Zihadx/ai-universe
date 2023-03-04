@@ -64,3 +64,29 @@ showAll.classList.remove("d-none");
 cards = cards.slice(0,12);
 showAll.classList.add("d-none");
 }
+
+
+
+// sort by date button
+let isSortByDate = false;
+const allApiData = async dataLimit => {
+    toggleSpinner(true)
+    const url =' https://openapi.programming-hero.com/api/ai/tools'
+    const res = await fetch(url)
+    const data = await res.json()
+    if(isSortByDate){
+        const sortDate = data.data.tools.sort((a,b) => new Date(b.published_in) - new Date(a.published_in))
+        showTools(sortDate, dataLimit)
+    } else {
+        showTools(data.data.tools, dataLimit)
+    }
+} 
+const sortButton = () => {
+    toggleSpinner(true)
+    isSortByDate = true
+    allApiData(6)
+}
+
+
+{toolDetails.accuracy.score ? `<p <span class="badge text-bg-danger">${toolDetails.accuracy.score * 100 ? toolDetails.accuracy.score * 100 : ""} % accuracy</span>
+      </P>` : ''}

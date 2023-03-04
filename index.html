@@ -11,13 +11,21 @@
     <script src="https://kit.fontawesome.com/68e6259085.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body onload="toggleSpinner(true)">
     <!------------ header section start----- -->
     <header class="container text-center mt-4">
         <h1>AI Universe Hub</h1>
-        <button class="btn btn-danger p-3 mt-4 mb-4">Sort By Date</button>
+        <button id="date" class="btn btn-danger p-3 mt-4 mb-4">Sort By Date</button>
     </header>
     <!------------ header section end --------->
+    <!-- loading spinner section start -->
+    <section id="loader" class="d-none d-flex justify-content-center align-items-center" style="height: 300px;">
+      <button class="btn btn-outline-danger" type="button" disabled>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    </section>
+    <!-- loading spinner section end -->
 
     <main class="container">
         <!-- ----------card section start --------->
@@ -32,13 +40,7 @@
                 <button id="btn-show-all" onclick="showAllData()" class="btn btn-danger p-3 mt-4 mb-4">Show more</button>
             </div>
         </section>
-
-      
-      
-      
-      
-      
-      
+        
       
       
       
@@ -65,7 +67,7 @@
                   </div>
                 </div>
                 <!-- show details second part  -->
-                <div id="details-second-part" class="col border border-blue rounded p-3 text-center">
+                <div id="details-second-part" class="col border border-blue rounded p-3 text-center ">
                   <div class="card">                   
                     <div class="card-body"> 
 
