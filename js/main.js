@@ -10,6 +10,9 @@ const displayData = (cards) => {
  
   cardContainer.innerHTML=''
 
+  // show 6 card
+  
+
   cards.forEach((card) => {
     // console.log(card);
     const cardDiv = document.createElement("div");
@@ -50,6 +53,13 @@ const showAllData =()=>{
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayData(data.data.tools));
+
+    const showAll = document.getElementById("show-all");
+  if (displayData > 6) {
+    showAll.classList.remove("d-none");
+  } else {
+    showAll.classList.add("d-none");
+  }
 }
 
 // modal style and function start
@@ -88,8 +98,8 @@ const showCardDetails = data =>{
   </div>
   </div>
 
-  <div class="mt-4">
-  <div>
+  <div class="mt-4 row">
+  <div class="col">
   <h4>Features<h4>
   <ul>
     <li class="fs-6">${data.data.features ? data.data.features[1].feature_name : ""}</li>
@@ -97,17 +107,29 @@ const showCardDetails = data =>{
     <li class="fs-6">${data.data.features ? data.data.features[3].feature_name : ""}</li>
   </ul>
   </div>
-  <div></div>
+  <div class="col">
+  <h4>Integrations</h4>
+  <ul>
+  <li class="fs-6">${data.data.integrations[0] ? data.data.integrations[0] : "No data Found"}</li>
+  <li class="fs-6">${data.data.integrations[1] ? data.data.integrations[1] : "No data Found"}</li>
+  <li class="fs-6">${data.data.integrations[2] ? data.data.integrations[2] : "No data Found"}</li>
+  
+  </ul>
+  </div>
   </div>
   
   
   </div>
   `
+//  modal second part 
+const detailsPart = document.getElementById('details-first-part');
 
 
 
 }
 loadCardDetails()
+
+
 
 
 // modal style and function end
