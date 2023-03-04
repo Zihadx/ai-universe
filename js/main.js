@@ -75,8 +75,6 @@ const showCardDetails = data =>{
   console.log(data)
   const detailsFirstPart = document.getElementById('details-first-part');
   detailsFirstPart.innerHTML = `
-  
-  
   <div>
   <h4>${data.data.description} </h4>
   <div class="container text-center">
@@ -110,24 +108,39 @@ const showCardDetails = data =>{
   <div class="col">
   <h4>Integrations</h4>
   <ul>
-  <li class="fs-6">${data.data.integrations[0] ? data.data.integrations[0] : "No data Found"}</li>
-  <li class="fs-6">${data.data.integrations[1] ? data.data.integrations[1] : "No data Found"}</li>
-  <li class="fs-6">${data.data.integrations[2] ? data.data.integrations[2] : "No data Found"}</li>
-  
+  <li class="fs-6">${data.data.integrations[0] ? data.data.integrations[0] : "No data Found"}
+  </li>
+  <li class="fs-6">${data.data.integrations[1] ? data.data.integrations[1] : "No data Found"}
+  </li>
+  <li class="fs-6">${data.data.integrations[2] ? data.data.integrations[2] : "No data Found"}
+  </li>
   </ul>
   </div>
   </div>
-  
-  
   </div>
   `
-//  modal second part 
-const detailsPart = document.getElementById('details-first-part');
+  // show card details second part 
+  const detailsSecondPart = document.getElementById('details-second-part');
+  detailsSecondPart.innerHTML=`
+   <img src="${data.data.image_link[0]}" class="card-img-top rounded" alt="...">
+  <h5 class="mt-4">${data.data.input_output_examples[0] ? 
+    data.data.input_output_examples[0].input :"No! Not Yet! Take a break!!!" } </h5>
+  <p>${data.data.input_output_examples[0] ?
+     data.data.input_output_examples[0].output :"No! Not Yet! Take a break!!!" }</p>
 
+  <h5>${data.data.input_output_examples[1] ? 
+    data.data.input_output_examples[1].input :"No! Not Yet! Take a break!!!" } </h5>
+  <p>${data.data.input_output_examples[1] ?
+     data.data.input_output_examples[1].output :"No! Not Yet! Take a break!!!" }</p>
 
+     
 
+  `
+  
 }
 loadCardDetails()
+
+
 
 
 
