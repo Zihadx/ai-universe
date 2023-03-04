@@ -174,8 +174,6 @@ const showCardDetails = (data) => {
   }</p>
 
 
-   
-
   `;
 };
 loadCardDetails();
@@ -190,3 +188,24 @@ const toggleSpinner = (isLoading) => {
 };
 
 // modal style and function end
+// short by date start 
+const shortByDate = document.getElementById('click', function(){
+  const allData = async dataLimit => {
+    toggleSpinner(true)
+    const url = ` https://openapi.programming-hero.com/api/ai/tool/${id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    if(allData){
+        const sortDate = data.data.tools.sort((a,b) => new Date(b.published_in) - new Date(a.published_in))
+        showTools(sortDate, dataLimit)
+    } else {
+        showTools(data.data.tools, dataLimit)
+    }
+} 
+})
+
+
+
+
+
+// short by date start 
