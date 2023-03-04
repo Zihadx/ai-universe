@@ -35,11 +35,13 @@
               </div>
         </section>
         <!-- ----------card section end--------- -->
+        <!-- ----------------show all start-------------- -->
         <section class="mt-4">
             <div id="show-all" class="text-center">
                 <button id="btn-show-all" onclick="showAllData()" class="btn btn-danger p-3 mt-4 mb-4">Show more</button>
             </div>
         </section>
+        <!-- ----------------show all end-------------- -->
         
       
       
@@ -47,18 +49,18 @@
         <!-- ----------Details section start--------- -->
         <section>
             
-            <!-- Modal -->
+            <!----- Modal ------>
       <div class="modal fade modal-xl" id="cardDetailsModal" tabindex="-1" aria-labelledby="cardDetailsModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered p-3 " >
       <div class="modal-content ">
-      
+       <!-- --------- button add ----------- -->
         <div>
        <span class="position-absolute top-0 start-100 translate-middle p-2 badge text-bg-danger border border-light rounded-circle btn-close " data-bs-dismiss="modal" aria-label="Close">
         </div>
        
         <!-- <div>   -->
-          <!-- -----------show details first part --------- -->
-            <div class="row row-cols-1 row-cols-md-2 mt-4 mb-4 p-3">
+          <div class="row row-cols-1 row-cols-md-2 mt-4 mb-4 p-3">
+              <!-- -----------show details first part start--------- -->
                 <div id="details-first-part" class="col bg-danger bg-gradient bg-opacity-10 border border-danger rounded p-3 ">
                   <div class="card">
                     <div class="card-body">
@@ -66,17 +68,18 @@
                     </div>
                   </div>
                 </div>
-                <!-- show details second part  -->
+               <!-- -----------show details first part start--------- -->
+
+                <!-- show details second part start -->
                 <div id="details-second-part" class="col border border-blue rounded p-3 text-center ">
                   <div class="card">                   
-                    <div class="card-body"> 
-
+                    <div class="card-body">
+                      
                     </div>
                   </div>
                 </div>
-
+                <!-- show details second part  end-->
             </div>
-        <!-- </div> -->
        </div>
      </div>
     </div>
